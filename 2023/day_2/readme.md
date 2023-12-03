@@ -1,4 +1,4 @@
-## --- Day 2: Cube Conundrum ---
+## Day 2: Cube Conundrum
 
 ### Part One
 

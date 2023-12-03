@@ -1,4 +1,4 @@
-## --- Day 1: Trebuchet?! ---
+## Day 1: Trebuchet?!
 
 ### Part One
 
