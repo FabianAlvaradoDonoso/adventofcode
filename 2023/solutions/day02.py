@@ -61,3 +61,5 @@ class Solution(SolutionBase):
                     bag[color] = int(count) if int(count) > bag[color] else bag[color]
 
             sum += Solution.power_set(bag) if flag else 0
+
+        return sum

@@ -139,7 +139,7 @@ class Files:
     def get_session():
         session = ""
         path = Files.get_path()
-        session_path = os.path.realpath(f"{path}/../aoc_session")
+        session_path = os.path.realpath(f"{path}/../../aoc_session")
         with open(session_path, "r") as f:
             session = f.read().strip()
         return session
@@ -148,7 +148,7 @@ class Files:
     def get_headers():
         headers = {}
         path = Files.get_path()
-        headers_config_path = os.path.realpath(f"{path}/../aoc_headers.json")
+        headers_config_path = os.path.realpath(f"{path}/../../aoc_headers.json")
         with open(headers_config_path, "r") as f:
             headers = json.loads(f.read().strip())
         return headers

@@ -42,7 +42,7 @@ def main():
         help="Optional, create additional test files",
     )
     parser.add_argument(
-        "--skip-test", action="store_true", help="Optional, skipping tests"
+        "-s", "--skip-test", action="store_true", help="Optional, skipping tests"
     )
     parser.add_argument(
         "--benchmark",

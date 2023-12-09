@@ -68,4 +68,4 @@ class Solution(SolutionBase):
             inst_idx = (inst_idx + 1) % len(inst)
             steps += 1
 
-        print("Result:", math.lcm(*least_steps))
+        return math.lcm(*least_steps)
