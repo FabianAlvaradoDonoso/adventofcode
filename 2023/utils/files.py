@@ -4,6 +4,7 @@ from time import sleep
 from pathlib import Path
 from bs4 import BeautifulSoup
 import markdownify
+from .config import AOC_SESSION, AOC_HEADERS
 
 
 class Files:
@@ -139,18 +140,14 @@ class Files:
     def get_session():
         session = ""
         path = Files.get_path()
-        session_path = os.path.realpath(f"{path}/../../aoc_session")
-        with open(session_path, "r") as f:
-            session = f.read().strip()
-        return session
+        return AOC_SESSION
 
     @staticmethod
     def get_headers():
         headers = {}
         path = Files.get_path()
-        headers_config_path = os.path.realpath(f"{path}/../../aoc_headers.json")
-        with open(headers_config_path, "r") as f:
-            headers = json.loads(f.read().strip())
+        # convert string to dict
+        headers = json.loads(AOC_HEADERS)
         return headers
 
     @staticmethod

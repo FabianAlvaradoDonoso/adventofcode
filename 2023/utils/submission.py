@@ -1,5 +1,6 @@
 import urllib.request, urllib.parse  # noqa
 import os, sys, re, json  # noqa
+from .config import AOC_HEADERS, AOC_SESSION
 
 
 class Submission:
@@ -46,18 +47,13 @@ class Submission:
     def get_session():
         session = ""
         path = Submission.get_path()
-        session_path = os.path.realpath(f"{path}/../aoc_session")
-        with open(session_path, "r") as f:
-            session = f.read().strip()
-        return session
+        return AOC_SESSION
 
     @staticmethod
     def get_headers():
         headers = {}
         path = Submission.get_path()
-        headers_config_path = os.path.realpath(f"{path}/../aoc_headers.json")
-        with open(headers_config_path, "r") as f:
-            headers = json.loads(f.read().strip())
+        headers = json.loads(AOC_HEADERS)
         return headers
 
     @staticmethod
