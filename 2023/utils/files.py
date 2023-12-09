@@ -82,7 +82,7 @@ class Files:
             "test_1_input.txt",
             "test_1_part1_result.txt",
             "test_1_part2_result.txt",
-            "readme.md",
+            "README.md",
         ]
         for file in files:
             file_path = Path(f"{folder}/{file}")

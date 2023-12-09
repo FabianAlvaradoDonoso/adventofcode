@@ -1,6 +1,6 @@
 # Advent of Code 2023
 
-My solutions to [Advent of Code 2023](https://adventofcode.com/2023/) using Python3
+Solución a retos de [Advent of Code 2023](https://adventofcode.com/2023/) usando Python3
 
 ```
 usage: app.py [-h] [-d day_number] [-p part_number] [--raw] [--add] [--add-test-file test_number] [--skip-test] [--benchmark] [--submit]
@@ -19,5 +19,5 @@ options:
                         Optional, create additional test files
   --skip-test           Optional, skipping tests
   --benchmark           Optional, benchmarking the code, and also skipping tests
-  --submit              Optional, submit your answer to AoC
+  --submit              Optional, submit your answer to AoC. It is required to complete information in the .env file.
 ```
