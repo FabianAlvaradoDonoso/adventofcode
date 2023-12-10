@@ -45,6 +45,9 @@ def main():
         "-s", "--skip-test", action="store_true", help="Optional, skipping tests"
     )
     parser.add_argument(
+        "-t", "--test", action="store_true", help="Optional, running tests only"
+    )
+    parser.add_argument(
         "--benchmark",
         action="store_true",
         help="Optional, benchmarking the code, and also skipping tests",
@@ -53,32 +56,40 @@ def main():
         "--submit", action="store_true", help="Optional, submit your answer to AoC"
     )
     args = parser.parse_args()
-
+    print()
     if not 0 < args.day < 26:
-        print("day number must be between 1 and 25")
+        print("🚫 Day number must be between 1 and 25")
         exit()
     elif args.add is True:
-        print("Adding day", args.day)
+        print("➕ Adding day", args.day)
         Files.add_day(args.day)
     elif args.add_test_file is not None:
-        print("Adding test file for day", args.day, ", no", args.add_test_file)
+        print("➕ Adding test file for day", args.day, ", no", args.add_test_file)
         Files.add_test_file(args.day, args.add_test_file)
     elif args.part not in [1, 2]:
-        print("part number must be 1 or 2")
+        print("🚫 Part number must be 1 or 2")
         exit()
     else:
-        print(f"Solving day {args.day} part {args.part}\n")
+        print(f"🤖 Solving day {args.day} part {args.part}\n")
+
         sol = importlib.import_module(f"solutions.day{args.day:02d}").Solution(
-            args.day, args.raw, args.skip_test, args.benchmark
+            args.day, args.raw, args.skip_test, args.test, args.benchmark
         )
-        print(
-            f"The answer is {answer}\n"
-            if (answer := sol.solve(part_num=args.part)) is not None
-            else ""
-        )
+
+        if args.test is True:
+            print("🧪 Running tests only\n")
+            sol.test_runner(args.part)
+        else:
+            print(
+                f"📝 The answer is {answer}\n"
+                if (answer := sol.solve(part_num=args.part)) is not None
+                else ""
+            )
+
         sol.benchmark(_print=True)
 
-        if answer and args.submit is True:
+        if not args.test and answer and args.submit is True:
+            print("\n🚀 Submitting answer to AoC")
             Submission.send_answer(args.day, args.part, answer)
 
 

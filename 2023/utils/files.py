@@ -70,7 +70,7 @@ class Files:
                 remote_content = response.read().decode("utf-8")
             with open(solution, "w+") as f:
                 f.write(remote_content)
-                print("Created file: " + solution)
+                print("✅ Created file: " + solution)
 
         folder = os.path.realpath(f"{path}/data/day{day:02}")
         folder_path = Path(folder)
@@ -88,7 +88,7 @@ class Files:
             file_path = Path(f"{folder}/{file}")
             if not file_path.exists():
                 file_path.touch()
-                print("Created file:", file_path)
+                print("✅ Created file:", file_path)
 
         input_path = Path(f"{folder}/{files[0]}")
         if input_path.stat().st_size == 0:
@@ -98,7 +98,7 @@ class Files:
             )
             if now < available_to_download:
                 print(
-                    "Puzzle input not available to download until",
+                    "🚨 Puzzle input not available to download until",
                     available_to_download.strftime("%Y-%m-%d %H:%M:%S"),
                     "UTC\n",
                 )
@@ -107,15 +107,15 @@ class Files:
                 sleep(1)
                 now = datetime.datetime.utcnow()
 
-            print("Downloading puzzle input...")
+            print("⬇️ Downloading puzzle input...")
             with open(input_path, "w+") as f:
                 f.write(Files.download_puzzle_input(day))
-                print("Downloaded puzzle input to:", input_path)
+                print("⬇️ Downloaded puzzle input to:", input_path)
 
         readme_path = Path(f"{folder}/{files[-1]}")
         with open(readme_path, "w+") as f:
             f.write(Files.download_puzzle_readme(day))
-            print("Downloaded readme to:", readme_path)
+            print("⬇️ Downloaded readme to:", readme_path)
 
     @staticmethod
     def add_test_file(day, test_no):
@@ -134,7 +134,7 @@ class Files:
             file_path = Path(f"{folder}/{file}")
             if not file_path.exists():
                 file_path.touch()
-                print("Created test file:", file_path)
+                print("🆕 Created test file:", file_path)
 
     @staticmethod
     def get_session():

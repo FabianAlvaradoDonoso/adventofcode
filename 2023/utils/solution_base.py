@@ -8,11 +8,13 @@ class SolutionBase:
         day_num: int = -1,
         is_raw: bool = False,
         skip_test: bool = False,
+        only_test: bool = False,
         benchmark: bool = False,
     ):
         self.day_num = day_num
         self.is_raw = is_raw
         self.skip_test = skip_test
+        self.only_test = only_test
         self._benchmark = benchmark
         self.benchmark_times = []
         self.data = PuzzleReader.get_puzzle_input(self.day_num, self.is_raw)
@@ -27,11 +29,12 @@ class SolutionBase:
         if not self.skip_test and not self._benchmark:
             self.test_runner(part_num)
 
-        func = getattr(self, f"part{part_num}")
-        self.benchmark()
-        result = func(self.data)
-        self.benchmark()
-        return result
+        if not self.only_test:
+            func = getattr(self, f"part{part_num}")
+            self.benchmark()
+            result = func(self.data)
+            self.benchmark()
+            return result
 
     def test_runner(self, part_num):
         test_inputs = self.get_test_input()
@@ -42,17 +45,17 @@ class SolutionBase:
         for i, r in zip(test_inputs, test_results):
             if len(r):
                 if (tr := str(func(i))) == r[0]:
-                    print(f"test {test_counter} passed")
+                    print(f"🟢 Test {test_counter} passed")
                 else:
-                    print(f"your result: {tr}")
-                    print(f"test answer: {r[0]}")
-                    print(f"test {test_counter} NOT passed")
+                    print(f"🔴 Test {test_counter} NOT passed")
+                    print(f"   - Your result: {tr}")
+                    print(f"   - Test answer: {r[0]}")
             test_counter += 1
         print()
 
     def check_is_raw(self):
         if self.is_raw is False:
-            print("please use --raw flag in this puzzle")
+            print("🚧 Please use --raw flag in this puzzle")
             exit()
 
     def benchmark(self, _print=False):
@@ -67,6 +70,6 @@ class SolutionBase:
             while t < 1:
                 t *= 1000
                 unit_idx += 1
-            print(f"benchmarking: {t:.2f} {units[unit_idx]}")
+            print(f"🏆 Benchmarking: {t:.2f} {units[unit_idx]}")
         elif self._benchmark:
             self.benchmark_times.append(timeit.default_timer())
