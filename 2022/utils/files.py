@@ -138,15 +138,11 @@ class Files:
 
     @staticmethod
     def get_session():
-        session = ""
-        path = Files.get_path()
         return AOC_SESSION
 
     @staticmethod
     def get_headers():
         headers = {}
-        path = Files.get_path()
-        # convert string to dict
         headers = json.loads(AOC_HEADERS)
         return headers
 
