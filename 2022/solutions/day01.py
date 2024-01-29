@@ -3,10 +3,29 @@ from utils.solution_base import SolutionBase
 
 class Solution(SolutionBase):
     def part1(self, data):
-        sumas = [sum([int(x) for x in elf.split("\n")]) for elf in elves]
-        return max(sumas)
+        elves = []
+        sum = 0
+        for i in data:
+            if i != "":
+                sum += int(i)
+            else:
+                elves.append(sum)
+                sum = 0
+        elves.append(sum)
+        return max(elves)
 
     def part2(self, data):
-        sumas = [sum([int(x) for x in elf.split("\n")]) for elf in elves]
-        sumas.sort(reverse=True)
-        return sum(sumas[:3])
+        elves = []
+        sum = 0
+        for i in data:
+            if i != "":
+                sum += int(i)
+            else:
+                elves.append(sum)
+                sum = 0
+        elves.append(sum)
+        elves.sort(reverse=True)
+        sum = 0
+        for i in range(3):
+            sum += elves[i]
+        return sum

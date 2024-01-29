@@ -1,65 +1,88 @@
 from utils.solution_base import SolutionBase
 import re
 
+# A - X Rock => 1
+# B - Y Paper => 2
+# C - Z Scissors => 3
+
+# Lose => 0 points
+# Tie => 3 point
+# Win => 6 points
+
 
 class Solution(SolutionBase):
-    @staticmethod
-    def get_number_games(line):
-        game = re.findall(r"\d", line)
-        return int("".join(game))
+    types_1 = {
+        "A": "rock",
+        "B": "paper",
+        "C": "scissors",
+        "X": "rock",
+        "Y": "paper",
+        "Z": "scissors",
+    }
+    types_2 = {
+        "X": "lose",
+        "Y": "draw",
+        "Z": "win",
+    }
 
-    @staticmethod
-    def split_string_strip(string, separator):
-        return [s.strip() for s in string.split(separator)]
+    points_hand = {"rock": 1, "paper": 2, "scissors": 3}
 
-    @staticmethod
-    def power_set(bag):
-        power_set = 1
-        for key in bag:
-            power_set *= bag[key]  # + 1
-        return power_set
+    def wins(self, enemy, player):
+        if enemy == "rock" and player == "paper":
+            return 6
+        elif enemy == "paper" and player == "scissors":
+            return 6
+        elif enemy == "scissors" and player == "rock":
+            return 6
+        elif enemy == player:
+            return 3
+        else:
+            return 0
+
+    def strategy(self, enemy, strategy):
+        if strategy == "lose":
+            if enemy == "rock":
+                return "scissors"
+            elif enemy == "paper":
+                return "rock"
+            elif enemy == "scissors":
+                return "paper"
+        elif strategy == "draw":
+            if enemy == "rock":
+                return "rock"
+            elif enemy == "paper":
+                return "paper"
+            elif enemy == "scissors":
+                return "scissors"
+        elif strategy == "win":
+            if enemy == "rock":
+                return "paper"
+            elif enemy == "paper":
+                return "scissors"
+            elif enemy == "scissors":
+                return "rock"
 
     def part1(self, data):
-        bag = {
-            "red": 12,
-            "green": 13,
-            "blue": 14,
-        }
+        points = 0
+        for game in data:
+            [enemy, player] = game.split(" ")
+            enemy = self.types_1[enemy]
+            player = self.types_1[player]
+            points += self.wins(enemy, player)
+            points += self.points_hand[player]
 
-        sum_id_games = 0
-        for line in data:
-            flag = True
-            [game, set_cubes] = line.split(":")
-
-            game = Solution.get_number_games(game)
-
-            for set in Solution.split_string_strip(set_cubes, ";"):
-                for cube in Solution.split_string_strip(set, ","):
-                    [count, color] = Solution.split_string_strip(cube, " ")
-                    flag = flag and bag[color] >= int(count)
-
-            sum_id_games += game if flag else 0
-
-        return sum_id_games
+        return points
 
     def part2(self, data):
-        sum = 0
-        for line in data:
-            bag = {
-                "red": 0,
-                "green": 0,
-                "blue": 0,
-            }
-            flag = True
-            [game, set_cubes] = line.split(":")
+        points = 0
+        for game in data:
+            [enemy, strategy] = game.split(" ")
+            enemy = self.types_1[enemy]
+            strategy = self.types_2[strategy]
 
-            game = Solution.get_number_games(game)
+            player = self.strategy(enemy, strategy)
 
-            for set in Solution.split_string_strip(set_cubes, ";"):
-                for cube in Solution.split_string_strip(set, ","):
-                    [count, color] = Solution.split_string_strip(cube, " ")
-                    bag[color] = int(count) if int(count) > bag[color] else bag[color]
+            points += self.wins(enemy, player)
+            points += self.points_hand[player]
 
-            sum += Solution.power_set(bag) if flag else 0
-
-        return sum
+        return points
