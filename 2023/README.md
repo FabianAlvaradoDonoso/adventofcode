@@ -1,6 +1,6 @@
 # Advent of Code 2023
 
-Solución a retos de [Advent of Code 2023](https://adventofcode.com/2023/) usando Python3
+Solution to challenges from [Advent of Code 2023](https://adventofcode.com/2023/) using Python3
 
 ```
 usage: app.py [-h] [-d day_number] [-p part_number] [--raw] [--add] [--add-test-file test_number] [--skip-test] [--benchmark] [--submit]
@@ -21,3 +21,24 @@ options:
   --benchmark           Optional, benchmarking the code, and also skipping tests
   --submit              Optional, submit your answer to AoC. It is required to complete information in the .env file.
 ```
+
+# 🎮 | Retos
+
+| Challenge Nº | Challenge Name                                                                | Description                                                                                     | Solution                                                                                          |
+| :----------: | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+|      01      | [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1)                     | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day01/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day01.py) |
+|      02      | [Day 2: Cube Conundrum](https://adventofcode.com/2023/day/2)                  | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day02/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day02.py) |
+|      03      | [Day 3: Gear Ratios](https://adventofcode.com/2023/day/3)                     | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day03/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day03.py) |
+|      04      | [Day 4: Scratchcards](https://adventofcode.com/2023/day/4)                    | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day04/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day04.py) |
+|      05      | [Day 5: If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day05/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day05.py) |
+|      06      | [Day 6: Wait For It](https://adventofcode.com/2023/day/6)                     | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day06/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day06.py) |
+|      07      | [Day 7: Camel Cards](https://adventofcode.com/2023/day/7)                     | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day07/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day07.py) |
+|      08      | [Day 8: Haunted Wasteland](https://adventofcode.com/2023/day/8)               | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day08/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day08.py) |
+|      09      | [Day 9: Mirage Maintenance](https://adventofcode.com/2023/day/9)              | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day09/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day09.py) |
+|      10      | [Day 10: Pipe Maze](https://adventofcode.com/2023/day/10)                     | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day10/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day10.py) |
+|      11      | [Day 11: Cosmic Expansion](https://adventofcode.com/2023/day/11)              | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day11/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day11.py) |
+|      12      | [Day 12: Hot Springs](https://adventofcode.com/2023/day/12)                   | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day12/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day12.py) |
+|      13      | [Day 13: Point of Incidence](https://adventofcode.com/2023/day/13)            | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day13/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day13.py) |
+|      14      | [Day 14: Parabolic Reflector Dish](https://adventofcode.com/2023/day/14)      | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day14/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day14.py) |
+|      15      | [Day 15: Lens Library](https://adventofcode.com/2023/day/15)                  | [Ver](https://github.com/FabianAlvaradoDonoso/adventofcode/tree/main/2023/data/day15/README.md) | [SPOILER](https://github.com/FabianAlvaradoDonoso/adventofcode/blob/main/2023/solutions/day15.py) |
+|      16      | ~~~~~                                                                         | ~~~~~                                                                                           | ~~~~~                                                                                             |
